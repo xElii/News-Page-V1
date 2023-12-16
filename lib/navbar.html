@@ -1,0 +1,47 @@
+<header class="header" id="header">
+    <nav class="navbar container" id="navbar">
+        <a href="/" class="nav-logo"><img src="/lib/LOGO.webp" alt="Datalok" width="164"></a>
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="/" class="nav-link hua"><i class="fa-solid fa-house-chimney"></i> Home</a></li>
+            <li class="nav-item"><a href="/uploads/" class="nav-link hua"><i class="fa-solid fa-image"></i> Uploads</a></li>
+        </ul>
+        <div class="hamburger"><span class="bar"></span><span class="bar"></span><span class="bar"></span></div>
+    </nav>
+</header>
+<script>
+// Responsive Navbar
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+const navLink = document.querySelectorAll(".nav-link");
+
+hamburger.addEventListener("click", mobileMenu);
+navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+function mobileMenu() {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}
+
+function closeMenu() {
+    hamburger.classList.remove("active");
+    navMenu.classList.remove("active");
+}
+</script>
+<script>
+// Animations on Navbar
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+    // Nach dem Scrollen:
+    document.getElementById("navbar").style.padding = "6px 6px";
+    document.getElementById("header").style.backgroundColor = "#21282995";
+    document.getElementById("header").style.borderBottomColor = "#1b1b20";
+  } else {
+    // Vor dem Scrollen:
+    document.getElementById("navbar").style.padding = "18px 6px";
+    document.getElementById("header").style.backgroundColor = "#212829";
+    document.getElementById("header").style.borderBottomColor = "#27262E";
+  }
+}
+</script>
